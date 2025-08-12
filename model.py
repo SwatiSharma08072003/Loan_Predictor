@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
@@ -6,7 +7,15 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix
 
 # ------------------ Load and Preprocess Dataset ------------------
-loan_data = pd.read_csv("datasets/loan_approval_dataset.csv", encoding='latin1')
+# Get the absolute path to the current file (model.py)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Build the full path to the CSV file
+file_path = os.path.join(BASE_DIR, "datasets", "loan_approval_dataset.csv")
+
+# Load the CSV file safely
+loan_data = pd.read_csv(file_path, encoding='latin1')
+
 loan_data.columns = loan_data.columns.str.strip()
 loan_data['education'] = loan_data['education'].str.strip().str.title().map({'Graduate': 1, 'Not Graduate': 0})
 loan_data['self_employed'] = loan_data['self_employed'].str.strip().str.title().map({'Yes': 1, 'No': 0})
