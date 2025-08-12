@@ -6,7 +6,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix
 
 # ------------------ Load and Preprocess Dataset ------------------
-loan_data = pd.read_csv(r"C:\Users\BHARDWAJ\Desktop\Streamlit\datasets\loan_approval_dataset.csv", encoding='latin1')
+loan_data = pd.read_csv("datasets/loan_approval_dataset.csv", encoding='latin1')
 loan_data.columns = loan_data.columns.str.strip()
 loan_data['education'] = loan_data['education'].str.strip().str.title().map({'Graduate': 1, 'Not Graduate': 0})
 loan_data['self_employed'] = loan_data['self_employed'].str.strip().str.title().map({'Yes': 1, 'No': 0})
