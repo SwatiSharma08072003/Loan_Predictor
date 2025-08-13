@@ -115,23 +115,6 @@ with tab4:
     st.markdown("Here’s a random sample of 15 rows from the loan dataset to help you format your own CSV correctly.")
     st.dataframe(loan_data.sample(15), use_container_width=True)
 
-    st.markdown("### 📋 Column Format Guide")
-    st.markdown("""
-    | Column Name         | Description                                 |
-    |---------------------|---------------------------------------------|
-    | education           | 1 = Graduate, 0 = Not Graduate              |
-    | self_employed       | 1 = Yes, 0 = No                             |
-    | applicant_income    | Numeric value of applicant's income        |
-    | coapplicant_income  | Numeric value of coapplicant's income      |
-    | loan_amount         | Loan amount requested                      |
-    | loan_amount_term    | Duration of loan in months                 |
-    | credit_history      | 1 = Good, 0 = Bad                           |
-    | gender              | 1 = Male, 0 = Female                        |
-    | married             | 1 = Yes, 0 = No                             |
-    | dependents          | 0, 1, 2, or 3                               |
-    | property_area       | 0 = Rural, 1 = Semiurban, 2 = Urban        |
-    """)
-
     st.caption("📌 Use this format when preparing your batch CSV for prediction.")
 
 # ------------------ Footer ------------------
