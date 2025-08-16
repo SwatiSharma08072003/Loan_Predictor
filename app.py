@@ -51,15 +51,24 @@ if selected_tab == "🔍 Single Prediction":
         user_input = {}
         user_input["education"] = st.radio("🎓 Education", options=[0, 1], format_func=lambda x: "Not Graduate" if x == 0 else "Graduate")
         user_input["self_employed"] = st.radio("💼 Self Employed", options=[0, 1], format_func=lambda x: "No" if x == 0 else "Yes")
-        user_input["income_annum"] = st.number_input("💰 Annual Income", min_value=0.0, value=500000.0)
-        user_input["cibil_score"] = st.number_input("📊 CIBIL Score", min_value=300, max_value=900, value=750)
-        user_input["bank_asset_value"] = st.number_input("🏦 Bank Asset Value", min_value=0.0, value=1000000.0)
-        user_input["commercial_assets_value"] = st.number_input("🏢 Commercial Assets", min_value=0.0, value=500000.0)
-        user_input["luxury_assets_value"] = st.number_input("💎 Luxury Assets", min_value=0.0, value=250000.0)
-        user_input["residential_assets_value"] = st.number_input("🏠 Residential Assets", min_value=0.0, value=750000.0)
-        user_input["loan_amount"] = st.number_input("💸 Loan Amount", min_value=0.0, value=200000.0)
-        user_input["loan_term"] = st.number_input("📆 Loan Term", min_value=2, max_value=20, value=10)   # Convert to months
-        user_input["no_of_dependents"] = st.radio("👶 No. of Dependents", options=list(range(0, 6)))
+        user_input["income_annum"] = st.number_input("💰 Annual Income", min_value=0.0,
+        help="Enter your annual income in INR. Minimum: ₹0. No upper limit.")
+        user_input["cibil_score"] = st.number_input("📊 CIBIL Score", min_value=300, max_value=900,
+        help="CIBIL score ranges from 300 to 900. Higher scores improve approval chances.")
+        user_input["bank_asset_value"] = st.number_input("🏦 Bank Asset Value", min_value=0.0,
+        help="Total value of your bank assets in INR. Minimum: ₹0.")
+        user_input["commercial_assets_value"] = st.number_input("🏢 Commercial Assets", min_value=0.0,
+        help="Total value of your commercial assets in INR. Minimum: ₹0.")
+        user_input["luxury_assets_value"] = st.number_input("💎 Luxury Assets", min_value=0.0,
+        help="Value of luxury assets like cars, jewelry, etc. Minimum: ₹0.")
+        user_input["residential_assets_value"] = st.number_input("🏠 Residential Assets", min_value=0.0,
+        help="Total value of your residential assets in INR. Minimum: ₹0.")
+        user_input["loan_amount"] = st.number_input("💸 Loan Amount", min_value=0.0,
+        help="Enter the loan amount you wish to apply for in INR. Minimum: ₹0.")
+        user_input["loan_term"] = st.number_input("📆 Loan Term", min_value=2, max_value=20,
+        help="Loan term in years. Must be between 2 and 20 years.")
+        user_input["no_of_dependents"] = st.radio("👶 No. of Dependents", options=list(range(0, 6)),
+        help="Number of dependents in your household. Range: 0 to 5.")
         user_input["loan_id"] = 0  # Placeholder
 
         submitted = st.form_submit_button("🚀 Predict Loan Status")
